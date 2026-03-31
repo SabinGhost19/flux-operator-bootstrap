@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tekton-trigger-provider-token
+  namespace: flux-system
+type: Opaque
+stringData:
+  token: flux-tekton-provider-token-demo-2026
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: tekton-eventlistener
+  namespace: flux-system
+spec:
+  type: generic
+  address: http://el-zt-cicd-listener.test-workload-spire-tekton.svc.cluster.local:8080
+  secretRef:
+    name: tekton-trigger-provider-token

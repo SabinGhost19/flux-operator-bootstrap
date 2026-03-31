@@ -1,0 +1,20 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: infra-tools-test-env-to-tekton
+  namespace: flux-system
+spec:
+  providerRef:
+    name: tekton-eventlistener
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: infra-tools-test-cicd-app-source
+      namespace: flux-system
+  inclusionList:
+    - ".*stored artifact for (revision|commit).*"
+  exclusionList:
+    - ".*dry-run.*"
+  eventMetadata:
+    sourcePath: apps/test-cicd-app
+    gpgSigned: "true"

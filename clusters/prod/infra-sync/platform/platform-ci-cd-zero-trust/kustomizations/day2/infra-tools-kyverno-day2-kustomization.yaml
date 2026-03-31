@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-tools-kyverno-day2
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: infra-tools-kyverno
+  interval: 5m0s
+  retryInterval: 1m0s
+  timeout: 10m0s
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: infra-tools
+  path: ./platform/platform/platform-ci-cd-zero-trust/kyverno-day2

@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-tools-test-env
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: infra-tools-test-workload-zt
+  interval: 5m0s
+  retryInterval: 1m0s
+  timeout: 5m0s
+  prune: true
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: infra-tools
+  path: ./deploy/test-env
