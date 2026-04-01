@@ -4,8 +4,8 @@ resources:
   - kustomizations/base/infra-tools-cert-manager-kustomization.yaml
   - kustomizations/day2/infra-tools-cert-manager-day2-kustomization.yaml
   - kustomizations/base/infra-tools-spire-kustomization.yaml
-  - kustomizations/base/infra-tools-kyverno-kustomization.yaml
-  - kustomizations/day2/infra-tools-kyverno-day2-kustomization.yaml
+#  - kustomizations/base/infra-tools-kyverno-kustomization.yaml
+#  - kustomizations/day2/infra-tools-kyverno-day2-kustomization.yaml
   - kustomizations/day2/infra-tools-keycloak-bootstrap-kustomization.yaml
   - kustomizations/day2/infra-tools-minio-kustomization.yaml
   - kustomizations/day2/infra-tools-minio-day2-kustomization.yaml
